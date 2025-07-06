@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>اختبار الكاميرا</title>
+  <meta charset="UTF-8">
+</head>
+<body style="text-align:center;">
+  <h2>📸 تمكين الكاميرا لتجربة أمنية</h2>
+  <p>إذا وافقت، سيتم عرض بث الكاميرا المباشر هنا فقط.</p>
+  <video id="video" width="300" autoplay playsinline></video>
+
+  <script>
+    navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function(stream) {
+      document.getElementById('video').srcObject = stream;
+    })
+    .catch(function(error) {
+      alert("لم نتمكن من تشغيل الكاميرا: " + error);
+    });
+  </script>
+</body>
+</html>
